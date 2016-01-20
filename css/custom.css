@@ -1,0 +1,18 @@
+body
+{
+	background-color: #def2fd;
+	max-width: 80%;
+}
+
+#someStuff
+{
+	text-align: center;
+	font-size: 300%;
+}
+
+#firstP
+{
+	text-align: center;
+	font-size: 150%;
+	color: grey;
+}
