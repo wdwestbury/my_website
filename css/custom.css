@@ -16,3 +16,9 @@ body
 	font-size: 150%;
 	color: grey;
 }
+
+#content
+{
+    width: 50%;
+    margin: 0 auto;
+}
