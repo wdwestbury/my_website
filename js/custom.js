@@ -1,4 +1,4 @@
-//define two arrays for cities and population
+// define variables
 var cityPop = 
 [
     { 
@@ -20,30 +20,24 @@ var cityPop =
 ];
 
 
-//function to create a table with cities and their populations
+// create a table with cities and populations
 function cities()
 {
-    //append the table element to the div
     $("#content").append("<table id=\"ftable\">");
 
-    //append a header row to the table
     $("table").append("<tr>");
 
-    //add the "City" and "Population" columns to the header row
     $("tr").append("<th>City</th><th>Population</th>");
 
-    //loop to add a new row for each city
     for (var i = 0; i < cityPop.length; i++)
     {
-        //assign longer html strings to a variable
         var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
 
-        //add the row's html string to the table
         $("table").append(rowHtml);
     };
 };
 
-
+// add columns to citypop 
 function addColumns(cityPop)
 {
     
@@ -106,19 +100,22 @@ function addEvents()
 
         $(this).css('color', color);
         };
-
-        // alert the user to the fact they clicked the table
-        function clickme()
-        {
-            alert('Hey, you clicked me!');
-        };
-
-        $('#ftable').on('click', clickme);
     });
+
+    // alert the user to the fact they clicked the table
+    function clickme()
+    {
+
+        window.alert('Hey, you clicked me!');
+
+        //console.log('yo');
+    };
+
+    $('#ftable').on('click', clickme);
 };
 
 
-
+// call functions
 cities();
 
 addColumns(cityPop);
