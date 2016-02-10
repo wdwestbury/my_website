@@ -20,6 +20,8 @@ var cityPop =
 ];
 
 
+
+
 // create a table with cities and populations
 function cities()
 {
@@ -36,6 +38,9 @@ function cities()
         $("table").append(rowHtml);
     };
 };
+
+
+
 
 // add columns to citypop 
 function addColumns(cityPop)
@@ -74,6 +79,9 @@ function addColumns(cityPop)
     });
 };
 
+
+
+
 // change color of the table on mouseover
 function addEvents()
 {
@@ -107,20 +115,78 @@ function addEvents()
     {
 
         window.alert('Hey, you clicked me!');
-
-        //console.log('yo');
     };
 
     $('#ftable').on('click', clickme);
 };
 
 
-// call functions
+
+
+// log data from megacities in console
+function MegaCities()
+{
+    var data;
+
+    // get data for megacities from geojson file
+    $.ajax("data/MegaCities.geojson",
+    {
+        dataType: "json",
+        success: function(response)
+        {
+            data = response;
+
+            // log data into the console
+            console.log(data);
+        }
+    });
+    
+    //data will not log into the console if log is placed here
+    console.log(data);
+}
+
+
+
+// display data from megacities to screen
+function displayMegaCitiesData()
+{
+    
+    var data;
+
+    // append megacities data to the content div
+    function appendMegaCitiesData(response)
+    { 
+        $("#content").append('<br />' + 'GeoJSON data: ' + JSON.stringify(data));
+    };
+
+    // get data for megacities from geojson file
+    $.ajax("data/MegaCities.geojson", 
+    {
+        dataType: "json",
+        success: function(response)
+        {
+            data = response;
+
+            appendMegaCitiesData(data);
+        }
+    });
+};
+
+
+
+
+
+
+// call functions (I didnt care for carl's initialize function, why have a function that just calls other functions?)
 cities();
 
 addColumns(cityPop);
 
 addEvents();
+
+MegaCities();
+
+displayMegaCitiesData();
 
 
 
